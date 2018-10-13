@@ -5,8 +5,7 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 var exphbs = require("express-handlebars");
-var router = require("./routes");
-var routes = require("./controllers/articles_controller.js");
+var routes = require("./routes");
 
 /*
 var articleRoutes = require("./routes/article-routes");
@@ -34,9 +33,7 @@ var app = express();
   app.use(express.json());
   // Make public a static folder
   app.use(express.static("public"));
-
-
-//app.use(router);
+  app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/FoxNews", { useNewUrlParser: true });

@@ -17,4 +17,15 @@ router.get("/all", function(req,res) {
   });
 });
 
+router.get("/", function(req, res) {
+
+  db.Article.find({}, function(error, data) {
+    console.log("This is the Main Route (main + index)");
+    var hbsObject = {
+      Article: data
+    };
+    res.render("index", hbsObject);
+    });
+  });
+
 module.exports = router;
