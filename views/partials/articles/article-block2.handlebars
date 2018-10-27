@@ -41,17 +41,6 @@
         <div class="modal-body">
           <ul class="list-group note-container">
           {{> notes/note-block}}     
-    <!--
-              {{#each notes}}
-                {{debug}}
-                <li class="list-group-item" id="noteArea{{this._id}}">
-                  {{debug}}
-                  <p>{{this.noteBody}}</p>
-                  <button class="btn btn-danger note-delete{{this._id}}">x</button>
-                </li>
-              {{/each}}
-    -->
-
           </ul>
 
         <!-- Modal form -->
@@ -60,9 +49,10 @@
           <textarea id="form-text" name="noteBody" placeholder="Enter new note here..." rows="3" cols="105"></textarea><hr>
           <button type="button" data-id="{{this._id}} class="btn btn-success float-right">Save Note</button>
         -->
-          
+          <br>
+          <hr>
           <input type="text" id="noteBodyInput{{this._id}}" placeholder="Enter new note...">
-          <button type="button" class="float-right save-note" data-id="{{this._id}}">Save Note</button>
+          <button type="button" class="btn btn-success btn-small float-right save-note" data-id="{{this._id}}">Save Note</button>
 
         <!-- End of Modal form --> 
         </div>

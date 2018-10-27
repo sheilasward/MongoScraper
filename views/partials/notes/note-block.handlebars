@@ -1,6 +1,6 @@
 {{#each notes}}
   <li class="list-group-item" id="noteArea{{this._id}}">
-    <p id="noteGoesHere">{{this.noteBody}}</p>
-    <button class="btn btn-danger btn-small note-delete" id="{{this._id}}">x</button>
+    <p id="noteGoesHere" class="float-left">{{this.noteBody}}</p>
+    <button class="small-button float-right note-delete" id="{{this._id}}">x</button>
   </li>
 {{/each}}
