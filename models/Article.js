@@ -12,22 +12,27 @@ var ArticleSchema = new Schema({
 	link: {
 		type: String,
 		required: true
-    },
-    imgLink: {
-        type: String,
-        required: true
-    },
+	},
+	imgLink: {
+			type: String,
+			required: true
+	},
+	kicker: {
+		type: String
+	},
 	saved: {
 		type: Boolean,
 		default: false
 	},
-	// `note` is an object that stores a Note id
-	// The ref property links the ObjectId to the Note model
-	// This allows us to populate the Article with an associated Note
-	note: {
+	// `notes` is an array that stores ObjectIds
+	// The ref property links these ObjectIds to the Note model
+	// This allows us to populate the Article with any associated notes
+	notes: [
+	  {
 		type: Schema.Types.ObjectId,
 		ref: "Note"
-	}
+	  }
+	]
 });
 
 // This creates the Article model from the ArticleSchema above

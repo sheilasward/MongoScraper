@@ -1,7 +1,22 @@
 {{#each articles}}
-
 <li>
-	{{this.title}}
+  <div class="card">
+    <div class="card-header bg-primary text-light">
+      <div class="float-sm-left">
+        <h3>{{this.title}}</h3>
+      </div>
+      <div class="float-sm-right">
+        <button type="button" class="btn btn-success btn-margin-left text-light" id="save-article" data-id={{this._id}}>Save Article</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="float-sm-left">
+        <h5 class="card-title">{{this.kicker}}</h5>
+        <a href="http://www.klove.com{{this.link}}" class="btn btn-primary" target="_blank">Go to Article...</a>
+      </div>
+      <img src="{{this.imgLink}}"" class="float-sm-right" width="200px">
+    </div>
+  </div>
 </li>
-
+<br>
 {{/each}}

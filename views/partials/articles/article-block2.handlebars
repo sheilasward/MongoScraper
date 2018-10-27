@@ -1,0 +1,75 @@
+{{#each articles}}
+<li>
+  <div data-_id={{this._id}} class="card">
+    <div class="card-header bg-primary text-light">
+      <div class="float-sm-left">
+        <h3>{{this.title}}</h3>
+      </div>
+      <div class="float-sm-right">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-success btn-margin-left text-light" id="new-note" data-toggle="modal" data-target="#notesModal{{this._id}}">Article Notes</button>
+      </div>
+      <div class="float-sm-right">
+        <button type="button" class="btn btn-success btn-margin-left text-light" id="delete-article" data-_id={{this._id}}>Delete</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="float-sm-left">
+        <h5 class="card-title">{{this.kicker}}</h5>
+        <a href="http://www.klove.com{{this.link}}" class="btn btn-primary" target="_blank">Go to Article...</a>
+      </div>
+      <img src="{{this.imgLink}}" class="float-sm-right" width="200px">
+    </div>
+  </div>
+</li>
+<br>
+
+<!-- The Modal -->
+
+  <div class="modal fade show" id="notesModal{{this._id}}">
+    <form class="note-form">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <!-- Modal header -->
+        <div class="modal-header">
+          <h6 class="modal-title"  id="note-title">Notes for Article:&emsp;{{this.title}}</h6>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <ul class="list-group note-container">
+          {{> notes/note-block}}     
+    <!--
+              {{#each notes}}
+                {{debug}}
+                <li class="list-group-item" id="noteArea{{this._id}}">
+                  {{debug}}
+                  <p>{{this.noteBody}}</p>
+                  <button class="btn btn-danger note-delete{{this._id}}">x</button>
+                </li>
+              {{/each}}
+    -->
+
+          </ul>
+
+        <!-- Modal form -->
+
+        <!--
+          <textarea id="form-text" name="noteBody" placeholder="Enter new note here..." rows="3" cols="105"></textarea><hr>
+          <button type="button" data-id="{{this._id}} class="btn btn-success float-right">Save Note</button>
+        -->
+          
+          <input type="text" id="noteBodyInput{{this._id}}" placeholder="Enter new note...">
+          <button type="button" class="float-right save-note" data-id="{{this._id}}">Save Note</button>
+
+        <!-- End of Modal form --> 
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+
+
+{{/each}}
