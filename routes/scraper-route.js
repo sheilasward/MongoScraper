@@ -10,15 +10,15 @@ var cheerio = require("cheerio");
 // Scrape News Articles from KLOVE Trending News
 router.get("/scrape", function(req,res) { 
   console.log("You are inside of scraper-route.js scrape")
-  axios.get("http://www.klove.com/news/trending-news/").then(function(response) {
+  axios.get("https://ww2.klove.com/news/").then(function(response) {
     var $ = cheerio.load(response.data);
-    $("div#trending-news").find("div.news-item").each(function(i, element) {
+    $("div#news-cards").find("a").each(function(i, element) {
       var result = {};
       if (i != 0) {
         result.imgLink = $(element).find("img").attr("src");
-        result.kicker = $(element).find("div.summary-text").text();
-        result.title = $(element).find("div.headline-text").text();
-        result.link = $(element).find("a").attr("href");
+        result.kicker = $(element).find("p.card-subtitle").text();
+        result.title = $(element).find("h5.card-title").text();
+        result.link = $(element).attr("href");
         if (result.imgLink && result.kicker && result.title && result.link) {
           db.Article.create(result).then(function(dbArticle) {
             console.log("article was inserted: " + dbArticle);

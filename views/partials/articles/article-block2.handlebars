@@ -10,7 +10,7 @@
         <button type="button" class="btn btn-success btn-margin-left text-light" id="new-note" data-toggle="modal" data-target="#notesModal{{this._id}}">Article Notes</button>
       </div>
       <div class="float-sm-right">
-        <button type="button" class="btn btn-success btn-margin-left text-light" id="delete-article" data-_id={{this._id}}>Delete</button>
+        <button type="button" class="btn btn-success btn-margin-left text-light" id="delete-article" data-id={{this._id}}>Delete</button>
       </div>
     </div>
     <div class="card-body">
@@ -25,9 +25,7 @@
 <br>
 
 <!-- The Modal -->
-
   <div class="modal fade show" id="notesModal{{this._id}}">
-    <form class="note-form">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
 
@@ -44,22 +42,17 @@
           </ul>
 
         <!-- Modal form -->
-
-        <!--
-          <textarea id="form-text" name="noteBody" placeholder="Enter new note here..." rows="3" cols="105"></textarea><hr>
-          <button type="button" data-id="{{this._id}} class="btn btn-success float-right">Save Note</button>
-        -->
-          <br>
-          <hr>
-          <input type="text" id="noteBodyInput{{this._id}}" placeholder="Enter new note...">
-          <button type="button" class="btn btn-success btn-small float-right save-note" data-id="{{this._id}}">Save Note</button>
+          <form class="note-form">
+            <br>
+            <hr>
+            <input type="text" id="noteBodyInput{{this._id}}" placeholder="Enter new note...">
+            <button type="button" class="btn btn-success btn-small float-right save-note" data-id="{{this._id}}">Save Note</button>
 
         <!-- End of Modal form --> 
+          </form>
         </div>
       </div>
     </div>
-    </form>
   </div>
-
 
 {{/each}}

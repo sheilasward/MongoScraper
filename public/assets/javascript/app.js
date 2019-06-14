@@ -60,7 +60,7 @@ $(document).ready(function() {
   $(document).on("click", "#delete-article", function(event) {
     console.log("You are inside of app.js delete-article")
     event.preventDefault();
-    var noteID = $(this).attr("data-id"); 
+    var articleID = $(this).attr("data-id");
     console.log("articleID = " + articleID) 
     $.ajax({
       url: "/delete-article/" + articleID,
@@ -102,8 +102,6 @@ $(document).ready(function() {
       }
     );
   });
-
-  
 
   // Click event to delete a note
   $("body").on("click", ".note-delete", function(event) {
