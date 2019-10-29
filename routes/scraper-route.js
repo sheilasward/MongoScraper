@@ -4,14 +4,14 @@ var router = express.Router();
 var db = require("../models");
 
 // Scraping tools
-var axios = require("axios");
+var rp = require("request-promise");
 var cheerio = require("cheerio");
 
 // Scrape News Articles from KLOVE Trending News
 router.get("/scrape", function(req,res) { 
   console.log("You are inside of scraper-route.js scrape")
-  axios.get("https://ww2.klove.com/news/").then(function(response) {
-    var $ = cheerio.load(response.data);
+  rp.get("https://ww2.klove.com/news/").then(function(response) {
+    var $ = cheerio.load(response);
     $("div#news-cards").find("a").each(function(i, element) {
       var result = {};
       if (i != 0) {

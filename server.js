@@ -41,8 +41,8 @@ mongoose.set("debug", true);
   app.use(express.static(path.join(__dirname, "/public")));
   
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/KLOVENews";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/KLOVENews";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 //mongoose.connect("mongodb://localhost/KLOVENews", { useNewUrlParser: true });
 
 // Use all routes
